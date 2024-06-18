@@ -1,4 +1,8 @@
 {
-  # Import all your configuration modules here
-  imports = [ ./bufferline.nix ];
+  imports = [
+    ./colorscheme.nix
+    ./options.nix
+    ./keymaps.nix
+    ./plugins
+  ];
 }

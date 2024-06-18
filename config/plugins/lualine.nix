@@ -1,5 +1,5 @@
 {
-  plugins.bufferline = {
+  plugins.lualine = {
     enable = true;
   };
 }
