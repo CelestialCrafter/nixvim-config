@@ -13,8 +13,8 @@
   plugins = {
     bufferline.enable = true;
     treesitter.enable = true;
-    luasnip.enable = true;
     oil.enable = true;
+    luasnip.enable = true;
     wakatime.enable = true;
     undotree.enable = true;
   };
