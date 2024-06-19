@@ -27,5 +27,12 @@
       key = "<leader>d";
       action = "\"_d";
     }
+
+    # undotree
+    {
+      mode = ["n" "x"];
+      key = "<leader>u";
+      action = "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>";
+    }
   ];
 }

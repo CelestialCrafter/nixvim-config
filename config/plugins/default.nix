@@ -17,5 +17,7 @@
     luasnip.enable = true;
     wakatime.enable = true;
     undotree.enable = true;
+    sleuth.enable = true;
+    fugitive.enable = true;
   };
 }
