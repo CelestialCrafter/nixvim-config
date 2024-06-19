@@ -27,12 +27,5 @@
       key = "<leader>d";
       action = "\"_d";
     }
-
-    # comment
-    {
-      mode = ["n" "x"];
-      key = "<leader>c";
-      action = "gcc";
-    }
   ];
 }

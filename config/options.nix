@@ -1,5 +1,5 @@
 {
-  globalOpts = {
+  opts = {
     number = true;
     gdefault = true;
     undofile = true;

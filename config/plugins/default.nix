@@ -6,6 +6,8 @@
     ./telescope.nix
     ./flash.nix
     ./lualine.nix
+    ./comment.nix
+    ./illuminate.nix
   ];
 
   plugins = {
@@ -13,8 +15,7 @@
     treesitter.enable = true;
     luasnip.enable = true;
     oil.enable = true;
-    illuminate.enable = true;
     wakatime.enable = true;
-    comment.enable = true;
+    undotree.enable = true;
   };
 }

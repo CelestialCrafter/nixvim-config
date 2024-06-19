@@ -1,0 +1,6 @@
+{
+  plugins.comment = {
+    enable = true;
+    settings.toggler.line = "<leader>c";
+  };
+}
