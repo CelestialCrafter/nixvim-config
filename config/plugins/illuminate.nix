@@ -1,6 +1,6 @@
 {
   plugins.illuminate = {
     enable = true;
-    providers = [ "treesitter" "regex" ];
+    providers = [ "regex" "lsp" "treesitter" ];
   };
 }
