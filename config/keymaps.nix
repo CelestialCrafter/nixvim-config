@@ -34,5 +34,17 @@
       key = "<leader>u";
       action = "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>";
     }
+
+    # quickfix
+    {
+      mode = ["n" "x"];
+      key = "<C-l>";
+      action = "<cmd>cnext<cr>";
+    }
+    {
+      mode = ["n" "x"];
+      key = "<C-h>";
+      action = "<cmd>cprev<cr>";
+    }
   ];
 }

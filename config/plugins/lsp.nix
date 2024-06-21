@@ -1,3 +1,5 @@
+{  pkgs, ... }:
+
 {
   plugins.lsp = {
     enable = true;
@@ -10,6 +12,9 @@
       cssls.enable = true; # css
       svelte.enable = true; # svelte
       dockerls.enable = true; # docker
+      jsonls.enable = true; # json
+      tsserver.enable = true; # javascript
+      lua-ls.enable = true; # lua
       rust-analyzer = { # rust
         enable = true;
 	installRustc = true;
@@ -17,4 +22,6 @@
       };
     };
   };
+
+  extraPackages = with pkgs; [ go python3 nodejs ];
 }

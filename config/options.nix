@@ -5,6 +5,7 @@
     undofile = true;
     breakindent = true;
     scrolloff = 10;
+    showmode = false;
     cmdheight = 0;
 
     splitbelow = true;
