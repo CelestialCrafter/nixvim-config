@@ -6,6 +6,7 @@
     breakindent = true;
     scrolloff = 10;
     showmode = false;
+    signcolumn = "yes";
     cmdheight = 0;
 
     splitbelow = true;

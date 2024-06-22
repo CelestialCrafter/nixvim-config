@@ -15,6 +15,9 @@
     ./todo.nix
     ./conform.nix
     ./lint.nix
+    ./dressing.nix
+    ./auto-indent.nix
+    ./lightbulb.nix
   ];
 
   plugins = {

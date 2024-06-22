@@ -1,6 +1,6 @@
 {
-  globals.mapleader = " ";
 
+  globals.mapleader = " ";
   keymaps = [
     # clear search
     {
@@ -10,6 +10,13 @@
       ];
       key = "<esc>";
       action = "<cmd>nohlsearch<cr>";
+    }
+
+    # code actions
+    {
+      mode = [ "n" ];
+      key = "<leader><cr>";
+      action = "<cmd>lua vim.lsp.buf.code_action()<cr>";
     }
 
     # system clipboard
@@ -90,14 +97,6 @@
         "n"
         "x"
       ];
-      key = "<leader>b/";
-      action = "<cmd>BufferLinePick<cr>";
-    }
-    {
-      mode = [
-        "n"
-        "x"
-      ];
       key = "<leader>bl";
       action = "<cmd>BufferLineCycleNext<cr>";
     }
@@ -114,7 +113,7 @@
         "n"
         "x"
       ];
-      key = "<leader>bd";
+      key = "<leader>bq";
       action = "<cmd>bdelete<cr>";
     }
   ];
