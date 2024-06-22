@@ -21,9 +21,9 @@
       TODO.icon = "┛ ";
       HACK.icon = "┛ ";
       WARN.icon = "┛ ";
-      PERF.icon = "┛ ";
-      NOTE.icon = "┛ ";
-      TEST.icon = "┛ ";
+      PERF.icon = "┨ ";
+      NOTE.icon = "┨ ";
+      TEST.icon = "┨ ";
     };
 
     keymaps = {
