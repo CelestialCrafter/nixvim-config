@@ -7,6 +7,7 @@
       css = [ "stylelint" ];
       go = [ "golangcilint" ];
       javascript = [ "eslint_d" ];
+      svelte = [ "eslint_d" ];
       lua = [ "luacheck" ];
       markdown = [ "markdownlint" ];
       nix = [ "nix" ];
@@ -28,5 +29,14 @@
     })
   '';
 
-  extraPackages = with pkgs; [ golangci-lint eslint_d ruff lua54Packages.luacheck yamllint sqlfluff markdownlint-cli stylelint ];
+  extraPackages = with pkgs; [
+    golangci-lint
+    eslint_d
+    ruff
+    lua54Packages.luacheck
+    yamllint
+    sqlfluff
+    markdownlint-cli
+    stylelint
+  ];
 }

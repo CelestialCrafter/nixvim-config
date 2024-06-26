@@ -13,10 +13,7 @@
         ];
       in
       {
-        "_" = [
-          "trim_whitespace"
-          "indent"
-        ];
+        "_" = [ "indent" ];
         go = [
           "goimports"
           "gofmt"
@@ -34,6 +31,7 @@
         markdown = prettier;
         json = prettier;
         yaml = prettier;
+        svelte = prettier;
       };
 
     formatOnSave = ''
@@ -64,5 +62,15 @@
   extraConfigLua = ''
     vim.g.slow_format_filetypes = {};
   '';
-  extraPackages = with pkgs; [ nixfmt-rfc-style stylelint prettierd nodePackages.prettier isort yapf stylua indent rustfmt ];
+  extraPackages = with pkgs; [
+    nixfmt-rfc-style
+    stylelint
+    prettierd
+    nodePackages.prettier
+    isort
+    yapf
+    stylua
+    indent
+    rustfmt
+  ];
 }

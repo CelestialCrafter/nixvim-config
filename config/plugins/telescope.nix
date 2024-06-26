@@ -38,9 +38,10 @@
       "<leader>fF".action = "file_browser";
       "<leader>fg".action = "live_grep";
       "<leader>fc".action = "command_history";
-      "<leader>fr".action = "lsp_references";
-      "<leader>fi".action = "lsp_implementations";
-      "<leader>fd".action = "lsp_definitions";
+      "<leader>gr".action = "lsp_references";
+      "<leader>gd".action = "lsp_definition";
+      "<leader>gi".action = "lsp_implementations";
+      "<leader>fd".action = "diagnostics";
     };
   };
 }
