@@ -47,30 +47,20 @@
         # LSP
         {
           name.__raw = ''
-                        function()
+                    function()
             	      local clients = vim.lsp.get_clients()
+                      local output = ""
 
             	      if next(clients) == nil then
             		return "none"
             	      end
 
-                          for _, client in ipairs(clients) do
-            	        for progress in client.progress do
-            		  if progress.value ~= nil then
-            		    if progress.value.kind == "begin" then
-            		      vim.g.custom_lsp_loaded = false
-            		    elseif progress.value.kind == "end" then
-            		      vim.g.custom_lsp_loaded = true
-            		    end
-            		  end
-            		end
-
-                            if vim.g.custom_lsp_loaded then
-                              return client.name
-                            else
-                              return client.name .. "..."
-                            end
+                      local clientNames = {};
+                      for _, client in ipairs(clients) do
+                        table.insert(clientNames, client.name)
             	      end
+
+                      return table.concat(clientNames, " ")
             	    end
           '';
           padding = {

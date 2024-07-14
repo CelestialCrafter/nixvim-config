@@ -8,7 +8,15 @@
       pyright.enable = true; # py
       nil-ls.enable = true; # nix
       marksman.enable = true; # md
-      html.enable = true; # html
+      html = {
+        # html
+        enable = true;
+        filetypes = [
+          "html"
+          "htm"
+        ];
+      };
+
       cssls.enable = true; # css
       svelte.enable = true; # svelte
       dockerls.enable = true; # docker
