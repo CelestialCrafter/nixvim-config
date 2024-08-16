@@ -3,7 +3,14 @@
     enable = true;
     settings = {
       sign.text = "┨ ";
-      autocmd.enabled = true;
+      autocmd = {
+        enabled = true;
+        updatetime = -1;
+      };
+      action_kinds = [
+        "quickfix"
+        "refactor"
+      ];
     };
   };
 }

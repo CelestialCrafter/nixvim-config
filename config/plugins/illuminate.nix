@@ -1,7 +1,11 @@
 {
   plugins.illuminate = {
-    enable = true;
+    enable = false;
     delay = 50;
-    providers = [ "regex" "lsp" "treesitter" ];
+    providers = [
+      "regex"
+      "lsp"
+      "treesitter"
+    ];
   };
 }

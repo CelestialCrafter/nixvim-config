@@ -3,6 +3,8 @@
 {
   plugins.conform-nvim = {
     enable = true;
+    notifyOnError = true;
+    formatOnSave = { };
     formattersByFt =
       let
         prettier = [
@@ -13,7 +15,6 @@
         ];
       in
       {
-        "_" = [ "indent" ];
         go = [
           "goimports"
           "gofmt"
@@ -33,35 +34,8 @@
         yaml = prettier;
         svelte = prettier;
       };
-
-    formatOnSave = ''
-      function(bufnr)
-        if vim.g.slow_format_filetypes[vim.bo[bufnr].filetype] then
-          return
-        end
-
-        local function on_format(err)
-          if err and err:match("timeout$") then
-            vim.g.slow_format_filetypes[vim.bo[bufnr].filetype] = true
-          end
-        end
-
-        return { timeout_ms = 200, lsp_format = "fallback" }, on_format
-      end
-    '';
-    formatAfterSave = ''
-      function(bufnr)
-        if not vim.g.slow_format_filetypes[vim.bo[bufnr].filetype] then
-          return
-        end
-
-        return { lsp_format = "fallback" }
-      end
-    '';
   };
-  extraConfigLua = ''
-    vim.g.slow_format_filetypes = {};
-  '';
+
   extraPackages = with pkgs; [
     nixfmt-rfc-style
     stylelint

@@ -4,7 +4,15 @@
     settings = {
       input = {
         enabled = true;
-        relative = "editor";
+        override.__raw = ''
+          function(conf)
+            -- 2 = border | 1 = below cursor
+            -- conf.row = conf.height + 2 + 1
+            -- conf.col = -1
+            conf.row = 0
+            return conf
+          end
+        '';
         mappings = {
           i = {
             "<C-c>" = "Close";

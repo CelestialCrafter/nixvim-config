@@ -26,9 +26,6 @@
       TEST.icon = "┨ ";
     };
 
-    keymaps = {
-      todoTelescope.key = "<leader>ft";
-      todoTrouble.key = "<leader>tt";
-    };
+    keymaps.todoTelescope.key = "<leader>ft";
   };
 }

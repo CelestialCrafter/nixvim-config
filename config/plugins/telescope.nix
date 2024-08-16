@@ -13,6 +13,15 @@
       };
     };
     settings.defaults = {
+      vimgrep_arguments = [
+        "rg"
+        "--color=never"
+        "--no-heading"
+        "--with-filename"
+        "--line-number"
+        "--column"
+        "--ignore-case"
+      ];
       prompt_prefix = "＃ ";
       selection_caret = "┨  ";
       entry_prefix = "   ";
@@ -34,14 +43,11 @@
       ];
     };
     keymaps = {
-      "<leader>ff".action = "find_files";
-      "<leader>fF".action = "file_browser";
+      "<leader>ff".action = "find_files no_ignore=true";
+      "<leader>fb".action = "buffers";
+      "<leader>fd".action = "diagnostics bufnr=0";
       "<leader>fg".action = "live_grep";
-      "<leader>fc".action = "command_history";
-      "<leader>gr".action = "lsp_references";
-      "<leader>gd".action = "lsp_definition";
-      "<leader>gi".action = "lsp_implementations";
-      "<leader>fd".action = "diagnostics";
+      "<leader>fs".action = "lsp_document_symbols";
     };
   };
 }

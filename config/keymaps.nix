@@ -9,7 +9,17 @@
         "x"
       ];
       key = "<esc>";
-      action = "<cmd>nohlsearch<cr>";
+      action = "<cmd>nohlsearch<cr><cmd>lua require('flash.highlight').clear(0)<cr>";
+    }
+
+    # disable :qa to exit vim
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "<C-c>";
+      action = "";
     }
 
     # code actions
@@ -33,6 +43,14 @@
         "n"
         "x"
       ];
+      key = "<leader>Y";
+      action = "\"+y$";
+    }
+    {
+      mode = [
+        "n"
+        "x"
+      ];
       key = "<leader>p";
       action = "\"+p";
     }
@@ -46,6 +64,40 @@
       key = "<leader>d";
       action = "\"_d";
     }
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "<leader>D";
+      action = "\"_D";
+    }
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "<leader>x";
+      action = "\"_x";
+    }
+
+    # quickfix
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "<C-j>";
+      action = "<cmd>cnext<cr>";
+    }
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "<C-k>";
+      action = "<cmd>cprev<cr>";
+    }
 
     # undotree
     {
@@ -57,64 +109,81 @@
       action = "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>";
     }
 
-    # quickfix
+    # comments
     {
       mode = [
         "n"
         "x"
       ];
-      key = "<C-l>";
-      action = "<cmd>cnext<cr>";
-    }
-    {
-      mode = [
-        "n"
-        "x"
-      ];
-      key = "<C-h>";
-      action = "<cmd>cprev<cr>";
+      key = "<leader>c";
+      action = "gc$";
     }
 
-    # bufferline
+    # oil
     {
       mode = [
         "n"
         "x"
       ];
-      key = "<leader>b0";
-      action = "<cmd>lua require('bufferline').go_to(1, true)<cr>";
+      key = "<leader>-";
+      action.__raw = ''
+        function()
+          local oil = require('oil')
+          if oil.get_current_dir(0) ~= nil then
+            return oil.close()
+          end 
+
+          oil.open()
+        end
+      '';
     }
+
+    # lsp hover toggle
     {
       mode = [
         "n"
         "x"
       ];
-      key = "<leader>b$";
-      action = "<cmd>lua require('bufferline').go_to(-1, true)<cr>";
-    }
-    {
-      mode = [
-        "n"
-        "x"
-      ];
-      key = "<leader>bl";
-      action = "<cmd>BufferLineCycleNext<cr>";
-    }
-    {
-      mode = [
-        "n"
-        "x"
-      ];
-      key = "<leader>bh";
-      action = "<cmd>BufferLineCyclePrev<cr>";
-    }
-    {
-      mode = [
-        "n"
-        "x"
-      ];
-      key = "<leader>bq";
-      action = "<cmd>bdelete<cr>";
+      key = "K";
+      action.__raw = ''
+        function()
+          local base_win_id = vim.api.nvim_get_current_win()
+          local windows = vim.api.nvim_tabpage_list_wins(0)
+          for _, win_id in ipairs(windows) do
+            if win_id ~= base_win_id then
+              local win_cfg = vim.api.nvim_win_get_config(win_id)
+              if win_cfg.relative == "win" and win_cfg.win == base_win_id then
+                vim.api.nvim_win_close(win_id, {})
+                return
+              end
+            end
+          end
+
+          vim.lsp.buf.hover()
+        end
+      '';
     }
   ];
+
+  # overwrite
+  extraConfigLua = ''
+    local set_opfunc = vim.fn[vim.api.nvim_exec([[
+      func s:set_opfunc(val)
+        let &opfunc = a:val
+      endfunc
+      echon get(function('s:set_opfunc'), 'name')
+    ]], true)]
+
+    local function change_put(motion)
+      if motion == nil then
+        set_opfunc(change_put)
+        return "g@"
+      end
+
+      local enter = vim.api.nvim_replace_termcodes("<CR>", true, true, true)
+      vim.api.nvim_feedkeys("<cmd>silent exe 'normal! `[v`]\"_c' . @" .. enter, "n", false)
+    end
+
+    vim.keymap.set("n", "cp", change_put, { expr = true })
+  '';
 }
