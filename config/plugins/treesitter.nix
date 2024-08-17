@@ -26,46 +26,24 @@
         end
 
         return false
-      end
+    end
 
-      require('nvim-treesitter.configs').setup({
-          highlight = {
-            enable = true,
-            disable = fileTooLarge,
+    require('nvim-treesitter.configs').setup({
+      highlight = {
+        enable = true,
+        disable = fileTooLarge,
+      },
+      textsubjects = {
+        enable = true,
+        prev_selection = '<S-cr>', -- (Optional) keymap to select the previous selection
+          keymaps = {
+            ['<cr>'] = 'textsubjects-smart',
+            [';'] = 'textsubjects-container-outer',
+            ['i;'] = 'textsubjects-container-inner',
           },
-          refactor = {
-            highlight_definitions = {
-              disable = fileTooLarge,
-              enable = true,
-              clear_on_cursor_move = false,
-            },
-            smart_rename = {
-              enable = true,
-              keymaps = {
-                smart_rename = "<leader>lr",
-              },
-            },
-            navigation = {
-              enable = true,
-              keymaps = {
-                goto_definition = "<leader>ld",
-              },
-            },
-          },
-          textsubjects = {
-              enable = true,
-              prev_selection = '<S-cr>', -- (Optional) keymap to select the previous selection
-              keymaps = {
-                  ['<cr>'] = 'textsubjects-smart',
-                  [';'] = 'textsubjects-container-outer',
-                  ['i;'] = 'textsubjects-container-inner',
-              },
-          },
-      })
+        },
+    })
   '';
-
-  # @PERF - extremely slow
-  plugins.treesitter-refactor.enable = true;
 
   extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {

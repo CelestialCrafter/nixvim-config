@@ -12,7 +12,7 @@
     splitbelow = true;
     splitright = true;
 
-    updatetime = 50;
+    updatetime = 200;
     timeoutlen = 300;
 
     ignorecase = true;

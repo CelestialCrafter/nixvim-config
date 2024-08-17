@@ -5,6 +5,15 @@
       buffers.mappings.i."<C-d>" = "delete_buffer";
     };
     settings.defaults = {
+      vimgrep_arguments = [
+        "rg"
+        "--color=never"
+        "--no-heading"
+        "--with-filename"
+        "--line-number"
+        "--column"
+        "--ignore-case"
+      ];
       prompt_prefix = "＃ ";
       selection_caret = "┨  ";
       entry_prefix = "   ";
@@ -26,7 +35,6 @@
       ];
     };
     keymaps = {
-      "<leader>ff".action = "find_files no_ignore=true";
       "<leader>fb".action = "buffers";
       "<leader>fd".action = "diagnostics bufnr=0";
       "<leader>fg".action = "live_grep";

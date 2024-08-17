@@ -137,6 +137,34 @@
       '';
     }
 
+    # telescope find file
+    {
+      mode = [
+        "n"
+        "x"
+      ];
+      key = "<leader>ff";
+      action.__raw = ''
+        function()
+          local utils = require('telescope.utils')
+          local builtin = require('telescope.builtin')
+
+          local dir = utils.buffer_dir()
+          if vim.fn.glob(dir) == "" then
+            dir = '.'
+          end
+
+          local output = utils.get_os_command_output({
+            "git",
+            "rev-parse",
+            "--show-toplevel"
+          }, dir)
+
+          builtin.find_files({ cwd = output[1] })
+        end
+      '';
+    }
+
     # lsp hover toggle
     {
       mode = [
