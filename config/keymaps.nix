@@ -8,7 +8,7 @@
         "x"
       ];
       key = "<Esc>";
-      action = "<cmd>nohlsearch<cr>";
+      action = "<cmd>nohlsearch<cr><Esc>";
     }
 
     # disable :qa to exit vim
