@@ -7,13 +7,8 @@
         "n"
         "x"
       ];
-      key = "<esc>";
-      action.__raw = ''
-        (function()
-          local ns = vim.api.nvim_create_namespace("flash")
-          return string.format("<cmd>nohlsearch<cr><cmd>lua require('flash.highlight').clear(%s)<cr>", ns);
-        end)()
-      '';
+      key = "<Esc>";
+      action = "<cmd>nohlsearch<cr>";
     }
 
     # disable :qa to exit vim
