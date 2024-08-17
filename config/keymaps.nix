@@ -132,7 +132,7 @@
             return oil.close()
           end 
 
-          oil.open()
+          oil.open(vim.fn.expand('%:p:h'))
         end
       '';
     }
