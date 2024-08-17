@@ -5,15 +5,6 @@
       buffers.mappings.i."<C-d>" = "delete_buffer";
     };
     settings.defaults = {
-      vimgrep_arguments = [
-        "rg"
-        "--color=never"
-        "--no-heading"
-        "--with-filename"
-        "--line-number"
-        "--column"
-        "--ignore-case"
-      ];
       prompt_prefix = "＃ ";
       selection_caret = "┨  ";
       entry_prefix = "   ";
