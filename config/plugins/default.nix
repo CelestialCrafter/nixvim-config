@@ -7,7 +7,6 @@
     ./lualine.nix
     ./illuminate.nix
     ./luasnip.nix
-    ./bufferline.nix
     ./todo.nix
     ./conform.nix
     ./lint.nix
@@ -23,7 +22,6 @@
   ];
 
   plugins = {
-    bufferline.enable = true;
     wakatime.enable = true;
     undotree.enable = true;
     nvim-autopairs.enable = true;

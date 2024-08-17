@@ -1,8 +1,8 @@
 {
   plugins.flash = {
     enable = true;
-    modes.search.enabled = true;
-    label.rainbow = {
+    settings.modes.search.enabled = true;
+    settings.label.rainbow = {
       enabled = true;
       shade = 2;
     };

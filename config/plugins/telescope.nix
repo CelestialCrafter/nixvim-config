@@ -1,16 +1,8 @@
 {
   plugins.telescope = {
     enable = true;
-    extensions.file-browser = {
-      enable = true;
-      settings = {
-        git_status = false;
-        display_stat = {
-          date = false;
-          size = false;
-          mode = false;
-        };
-      };
+    settings.pickers = {
+      buffers.mappings.i."<C-d>" = "delete_buffer";
     };
     settings.defaults = {
       vimgrep_arguments = [
@@ -48,6 +40,7 @@
       "<leader>fd".action = "diagnostics bufnr=0";
       "<leader>fg".action = "live_grep";
       "<leader>fs".action = "lsp_document_symbols";
+      "<leader><leader>".action = "buffers";
     };
   };
 }
