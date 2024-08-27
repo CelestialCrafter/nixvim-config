@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   plugins.lsp = {
@@ -37,5 +37,10 @@
     go
     python3
     nodejs
+    fennel-ls
   ];
+
+  extraConfigLua = ''
+    require('lspconfig').fennel_ls.setup({})
+  '';
 }

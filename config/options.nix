@@ -4,6 +4,7 @@
     gdefault = true;
     undofile = true;
     breakindent = true;
+    wrap = false;
     scrolloff = 30;
     showmode = false;
     signcolumn = "yes";

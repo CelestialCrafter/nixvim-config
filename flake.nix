@@ -23,12 +23,12 @@
           nvim = nixvim.legacyPackages.${system}.makeNixvimWithModule {
             inherit pkgs;
             module = import ./config;
-            # You can use `extraSpecialArgs` to pass additional arguments to your module files
             extraSpecialArgs = {
-              # inherit (inputs) foo;
+              inherit inputs;
             };
           };
-        in {
+        in
+        {
           packages.default = nvim;
         };
     };

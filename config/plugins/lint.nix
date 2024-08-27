@@ -14,6 +14,7 @@
       python = [ "ruff" ];
       sql = [ "sqlfluff" ];
       yaml = [ "yamllint" ];
+      fennel = [ "fennel" ];
     };
   };
 

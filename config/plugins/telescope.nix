@@ -36,7 +36,9 @@
     };
     keymaps = {
       "<leader>fb".action = "buffers";
-      "<leader>fd".action = "diagnostics bufnr=0";
+      "<leader>fd".action = "lsp_definitions";
+      "<leader>fr".action = "lsp_references";
+      "<leader>fD".action = "diagnostics bufnr=0";
       "<leader>fg".action = "live_grep";
       "<leader>fs".action = "lsp_document_symbols";
       "<leader><leader>".action = "buffers";
