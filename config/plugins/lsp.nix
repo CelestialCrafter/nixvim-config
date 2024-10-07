@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   plugins.lsp = {
@@ -23,6 +23,7 @@
       jsonls.enable = true; # json
       tsserver.enable = true; # javascript
       lua-ls.enable = true; # lua
+      zls.enable = true; # zig
       rust-analyzer = {
         # rust
         enable = true;
