@@ -19,6 +19,7 @@
 
       cssls.enable = true; # css
       svelte.enable = true; # svelte
+      gleam.enable = true; # gleam
       dockerls.enable = true; # docker
       jsonls.enable = true; # json
       tsserver.enable = true; # javascript

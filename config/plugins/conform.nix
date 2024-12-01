@@ -21,6 +21,7 @@
           ];
           lua = [ "stylua" ];
           nix = [ "nixfmt" ];
+          gleam = [ "gleam" ];
           python = [
             "yapf"
             "isort"
